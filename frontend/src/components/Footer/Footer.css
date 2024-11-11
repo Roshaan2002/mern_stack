@@ -1,0 +1,19 @@
+footer {
+  background-color: #005bb5;
+  color: #fff;
+  text-align: center;
+  padding: 3.2rem 0;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
