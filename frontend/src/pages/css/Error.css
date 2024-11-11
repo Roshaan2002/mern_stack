@@ -1,0 +1,95 @@
+/* General reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Error Page Styling */
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  text-align: center;
+}
+
+.content {
+  max-width: 500px;
+  padding: 2rem;
+  background-color: var(--dark-color);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  font-size: 6rem;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Button Styles */
+.btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btns a {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0073e6;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btns a:hover {
+  background-color: #005bb5;
+}
+
+/* Responsive Styling */
+@media (max-width: 600px) {
+  .header {
+    font-size: 4rem;
+  }
+  .content {
+    padding: 1.5rem;
+  }
+  .btns {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,88 @@
+/* General resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Navbar Styles */
+header {
+  width: 100%;
+  background-color: #0073e6;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-brand a {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+}
+
+.hamburger {
+  font-size: 1.5rem;
+  color: #fff;
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background-color: #0073e6;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+  .nav-active nav ul {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+  }
+}

@@ -1,0 +1,118 @@
+/* General resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Registration Section */
+.section-registration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+}
+
+.register-container {
+  width: 60%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.grid-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Image Styling */
+.registration-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.registration-form {
+  background-color: var(--dark-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.registration-form h1 {
+  font-size: 2rem;
+  color: #0073e6;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.registration-form form div {
+  margin-bottom: 1.5rem;
+}
+
+.registration-form label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="number"],
+.registration-form input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.registration-form input[type="text"]:focus,
+.registration-form input[type="email"]:focus,
+.registration-form input[type="number"]:focus,
+.registration-form input[type="password"]:focus {
+  border-color: #0073e6;
+  outline: none;
+}
+
+/* Button Styling */
+.btn-submit {
+  display: inline-block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0073e6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #005bb5;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .grid-two-cols {
+    grid-template-columns: 1fr;
+  }
+  .registration-image img {
+    margin: 0 auto;
+    display: block;
+  }
+}

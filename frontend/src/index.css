@@ -1,0 +1,657 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --bg-color: #f4f3ff;
+  --btn-color: #646cff;
+  --dark-color: #242424;
+  --helper-color: #99b9ff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  min-width: 32rem;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+}
+
+h1 {
+  font-size: 5.4rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+p,
+li,
+label,
+input,
+textarea {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.06rem;
+}
+
+a {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--btn-color);
+  text-decoration: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 140rem;
+  padding: 4rem 2.4rem;
+  margin: 0 auto;
+}
+
+/* Home Page Styles */
+.section-hero {
+  padding: 4rem 0;
+  background-color: var(--dark-color);
+}
+
+.section-hero .grid-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: #0073e6;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.hero-content .btn-group {
+  margin-top: 1.5rem;
+}
+
+.hero-content .btn-group .btn {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.hero-content .btn-group .btn:hover {
+  background-color: #005bb5;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Analytics Section Styles */
+.section-analytics {
+  padding: 4rem 0;
+  background-color: #fff;
+  color: var(--dark-color);
+}
+
+.section-analytics .grid-four-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.section-analytics h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.section-analytics p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.hero-content .btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.hero-content .btn-group a {
+  text-decoration: none;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #0073e6;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-user {
+  font-size: 1.7rem;
+  line-height: 1;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* .btnn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0073e6;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.btnn:hover {
+  background-color: #005bb5;
+} */
+
+/* .secondary-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+.secondary-btn:hover {
+  background-color: #bbb;
+  color: #333;
+} */
+
+/* Image Styling */
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Services style  */
+.section-services {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.main-heading {
+  font-size: 2.5rem;
+  color: #4a90e2;
+  margin-bottom: 2rem;
+}
+
+.service-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Card Styles */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #4a90e2;
+}
+
+.card-details {
+  padding: 1.5rem;
+}
+
+.card-details h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card-details p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.grid-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: #4a90e2;
+  font-weight: bold;
+}
+
+ /* react toastify style  */
+
+ .toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+ }
+
+ /* Admin panel styling css  */
+
+ /* Add this to your CSS file */
+.admin-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.admin-nav {
+  background-color: #0073e6;
+  padding: 20px;
+  color: #fff;
+}
+
+.admin-nav ul {
+  display: grid;
+  justify-content: center;
+  list-style: none;
+  margin-top: 14rem;
+  padding: 0;
+}
+
+.admin-nav ul li {
+  margin: 15px 0;
+}
+
+.admin-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-nav ul li a:hover {
+  color: #1abc9c;
+}
+
+.admin-content {
+  padding: 20px;
+  background-color: var(--dark-color);
+}
+
+
+/* Admin User Section */
+.admin-user-section {
+  padding: 3rem 1rem;
+  background-color: var(--dark-color);
+}
+
+/* .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+} */
+
+h1 {
+  font-size: 2rem;
+  color: #0073e6;
+  margin-bottom: 2rem;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #0073e6;
+  color: var(--bg-color);
+}
+
+tr {
+  color: var(--bg-color);
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #3b3b3b;
+}
+
+tbody tr:hover {
+  background-color: #4a4a4a;
+}
+
+
+/* Button styling */
+th:last-child,
+td:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.edit-button {
+  background-color: #0fa573;
+  color: #1e1e1e;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+td:last-child .delete {
+  background-color: #e63946;
+  color: #1e1e1e;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+/* update user data styling css */
+
+.section-update {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-update {
+  max-width: 600px;
+  background-color: var(--dark-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-heading {
+  font-size: 2rem;
+  color: #4a90e2;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.user-update-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-update-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.user-update-form input[type="text"],
+.user-update-form input[type="email"],
+.user-update-form input[type="number"] {
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+.user-update-form input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.btn-submits {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submits:hover {
+  background-color: #357ab8;
+}
+
+/* admin-service styleing css  */
+.admin-services-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1rem;
+}
+
+/* Header Styling */
+.admin-services-header {
+  font-size: 2.5rem;
+  color: #0073e6;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Form Styling */
+.admin-services-form {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 3rem;
+}
+
+.admin-services-input,
+.admin-services-textarea {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #444;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #f4f4f4;
+}
+
+.admin-services-textarea {
+  resize: vertical;
+}
+
+.admin-services-input:focus,
+.admin-services-textarea:focus {
+  outline: none;
+  border-color: #0073e6;
+}
+
+.admin-services-button {
+  padding: 1rem;
+  background-color: #0073e6;
+  color: #1e1e1e;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-services-button:hover {
+  background-color: #0073e6;
+}
+
+/* Service List */
+.admin-services-list-header {
+  font-size: 2rem;
+  color: #0073e6;
+  margin-bottom: 1rem;
+}
+
+.admin-services-list {
+  list-style-type: none;
+  color: var(--bg-color);
+  padding: 0;
+}
+
+.admin-services-list-item {
+  background-color: #333;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-services-delete-button {
+  padding: 0.5rem 1rem;
+  background-color: #e63946;
+  color: #f4f4f4;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.admin-services-delete-button:hover {
+  background-color: #c72c3c;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  th,
+  td {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .admin-services-form {
+    padding: 1.5rem;
+  }
+
+  .admin-services-input,
+  .admin-services-textarea {
+    padding: 0.8rem;
+    margin: 0.8rem 0;
+  }
+
+  .admin-services-button {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .admin-services-list-item {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.8rem;
+  }
+  .grid-two-cols,
+  .grid-four-cols {
+    grid-template-columns: 1fr;
+  }
+  .grid-three-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .section-analytics .grid-four-cols {
+    gap: 1.5rem;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-image img {
+    margin: 0 auto;
+  }
+  .user-update {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-three-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .admin-services-header {
+    font-size: 1.8rem;
+  }
+
+  .admin-services-list-header {
+    font-size: 1.5rem;
+  }
+
+  .admin-services-input,
+  .admin-services-textarea {
+    font-size: 0.9rem;
+  }
+
+  .admin-services-button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
+
