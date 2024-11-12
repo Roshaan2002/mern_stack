@@ -17,8 +17,12 @@ const serviceSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    required: false,
+  }
 });
 
-const Service = new model('Services', serviceSchema)
+const Service = model('Services', serviceSchema);
 
 module.exports = Service;
