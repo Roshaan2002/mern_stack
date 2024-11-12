@@ -8,13 +8,10 @@ const Service = () => {
     <section className="section-services">
       <div>
         <h1 className="main-heading">Our Services</h1>
-        {services.length === 0 ? (
-          <h4>No services available.</h4>
-        ) : (
+        {services && services.length > 0 ? (
           <div className="service-container grid grid-three-cols">
             {services.map((curService, index) => {
               const { price, provider, service, description, image } = curService;
-              // Build the correct image URL
               const imageUrl = image
                 ? `http://localhost:5000${image}` // Full URL for image
                 : "/uploads/service-admin.png"; // Fallback to default image
@@ -40,6 +37,8 @@ const Service = () => {
               );
             })}
           </div>
+        ) : (
+          <h4>No services available.</h4>
         )}
       </div>
     </section>
