@@ -279,48 +279,50 @@ li {
 
  /* Admin panel styling css  */
 
- /* Add this to your CSS file */
 .admin-layout {
-  display: grid;
-  grid-template-columns: 250px 1fr;
+  display: flex;
   min-height: 100vh;
 }
 
 .admin-nav {
   background-color: #0073e6;
-  padding: 20px;
-  color: #fff;
+  color: white;
+  width: 250px;
+  padding-top: 1rem;
+  transition: transform 0.3s ease; /* Smooth transition for toggle */
 }
 
 .admin-nav ul {
-  display: grid;
-  justify-content: center;
   list-style: none;
-  margin-top: 14rem;
   padding: 0;
-}
-
-.admin-nav ul li {
-  margin: 15px 0;
-}
-
-.admin-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
+  margin: 10rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.admin-nav ul li {
+  margin-bottom: 1rem;
+}
+
+.admin-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s;
+}
+
 .admin-nav ul li a:hover {
-  color: #1abc9c;
+  background-color: #0056b3; /* Slightly darker shade */
 }
 
 .admin-content {
-  padding: 20px;
-  background-color: var(--dark-color);
+  flex: 1;
+  padding: 1rem;
 }
-
 
 /* Admin User Section */
 .admin-user-section {
@@ -580,6 +582,32 @@ td:last-child .delete {
 
   h1 {
     font-size: 1.8rem;
+  }
+  .admin-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%); /* Hide sidebar by default on small screens */
+  }
+
+  .admin-nav.open {
+    transform: translateX(0); /* Show sidebar when open */
+  }
+
+  /* Add padding to the content when the menu is open */
+  .admin-content {
+    padding-left: 0;
+  }
+
+  /* Toggle button for small screens */
+  .admin-menu-toggle {
+    position: absolute;
+    top: 13rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
   }
 
   .admin-services-form {
