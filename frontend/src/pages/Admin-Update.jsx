@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 
@@ -12,6 +12,7 @@ const AdminUpdate = () => {
   });
 
   const params = useParams();
+  const navigate = useNavigate();
   const { authorizationToken } = useAuth();
 
   // Get single user data
@@ -64,7 +65,8 @@ const AdminUpdate = () => {
       );
 
       if (response.ok) {
-        toast.success("User updated successfully");
+        navigate('/admin/users');
+        toast.success("User updated");
       } else {
         toast.error("Failed to update user");
       }
