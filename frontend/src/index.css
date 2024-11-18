@@ -276,6 +276,11 @@ li {
   color: #008000;
   margin-top: 0.5rem;
 }
+
+.service-description{
+  font-size: 1.3rem;
+  letter-spacing: normal;
+}
 /* read more button in service styling */
 .read-more-button {
   display: inline-block;

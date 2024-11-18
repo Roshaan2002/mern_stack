@@ -33,7 +33,7 @@ const Service = () => {
                       <p className="service-price">{price}</p>
                     </div>
                     <h2>{service}</h2>
-                    <p>{description}</p>
+                    <p className="service-description">{description}</p>
                     <Link to={`/services/${id}`} className="read-more-button">
                       Read More
                     </Link>
