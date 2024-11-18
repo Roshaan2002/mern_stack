@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 const Service = () => {
   const { services } = useAuth();
@@ -11,12 +12,11 @@ const Service = () => {
         {services && services.length > 0 ? (
           <div className="service-container grid grid-three-cols">
             {services.map((curService, index) => {
-              const { price, provider, service, description, image } = curService;
+              const { id, price, provider, service, description, image } = curService;
               // Dynamically construct the image URL or use the fallback
               const imageUrl = image && image.startsWith('/uploads')
                 ? `http://localhost:5000${image}`
                 : "/images/service-admin.png";
-                console.log("Image URL:", imageUrl);
 
               return (
                 <div className="card" key={index}>
@@ -29,11 +29,14 @@ const Service = () => {
                   </div>
                   <div className="card-details">
                     <div className="grid grid-two-cols">
-                      <p>{provider}</p>
-                      <p>{price}</p>
+                      <p className="service-provider">{provider}</p>
+                      <p className="service-price">{price}</p>
                     </div>
                     <h2>{service}</h2>
                     <p>{description}</p>
+                    <Link to={`/services/${id}`} className="read-more-button">
+                      Read More
+                    </Link>
                   </div>
                 </div>
               );

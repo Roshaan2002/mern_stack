@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Logout from "./pages/Logout";
 import Navbar from "./components/Navbar";
 import Service from "./pages/Service";
+import ServiceDetail from "./pages/ServiceDetail";
 import Error from "./pages/Error";
 import Footer from "./components/Footer/Footer";
 import AdminLayout from "./components/layouts/Admin-Layout";
@@ -19,30 +20,31 @@ import AdminServices from "./pages/Admin-Services";
 const App = () => {
   return (
     <>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route />
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/service" element={<Service />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="*" element={<Error />} />
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route path="users" element={<AdminUsers />} />
-              <Route path="/admin/users/:id/edit" element={<AdminUpdate />} />
-              <Route path="contacts" element={<AdminContacts />} />
-              <Route path="services" element={<AdminServices />} />
-            </Route>
-          </Routes>
-          <div id="root">
-            <div className="main-content"></div>
-            <Footer />
-          </div>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/service/:id" element={<ServiceDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="*" element={<Error />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="/admin/users/:id/edit" element={<AdminUpdate />} />
+            <Route path="contacts" element={<AdminContacts />} />
+            <Route path="services" element={<AdminServices />} />
+          </Route>
+        </Routes>
+        <div id="root">
+          <div className="main-content"></div>
+          <Footer />
+        </div>
+      </BrowserRouter>
     </>
   );
 };
