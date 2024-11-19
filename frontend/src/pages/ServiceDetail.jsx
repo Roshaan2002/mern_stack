@@ -9,7 +9,6 @@ const ServiceDetail = () => {
     <section className="service-detail">
       <h1>Service Details</h1>
       <p>Details for service ID: {id}</p>
-      {/* Add more detailed information */}
     </section>
   );
 };
