@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import Analytics from "../components/Analytics";
 
@@ -38,12 +38,12 @@ const About = () => {
               facilis expedita natus nihil.
             </p>
             <div className="btn btn-group">
-              <NavLink to="/contact">
+              <Link to="/contact">
                 <button className="btn">Connect Now</button>
-              </NavLink>
-              <NavLink to="/service">
+              </Link>
+              <Link to="/service">
                 <button className="btn">Learn more</button>
-              </NavLink>
+              </Link>
             </div>
           </div>
           <div className="hero-image">
