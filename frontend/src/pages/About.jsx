@@ -41,7 +41,7 @@ const About = () => {
               <NavLink to="/contact">
                 <button className="btn">Connect Now</button>
               </NavLink>
-              <NavLink to="/services">
+              <NavLink to="/service">
                 <button className="btn">Learn more</button>
               </NavLink>
             </div>
