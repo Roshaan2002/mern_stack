@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
 
 const AdminServices = () => {
   const [services, setServices] = useState([]);
@@ -45,17 +46,26 @@ const AdminServices = () => {
     if (serviceData.image) formData.append("image", serviceData.image);
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/services/add", {
-        method: "POST",
-        headers: {
-          Authorization: authorizationToken,
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/admin/services/add",
+        {
+          method: "POST",
+          headers: {
+            Authorization: authorizationToken,
+          },
+          body: formData,
+        }
+      );
       if (response.ok) {
         toast.success("Service added successfully!");
         getAllServices(); // Refresh services list
-        setServiceData({ service: "", provider: "", price: "", description: "", image: null });
+        setServiceData({
+          service: "",
+          provider: "",
+          price: "",
+          description: "",
+          image: null,
+        });
       } else {
         toast.error("Failed to add service");
       }
@@ -68,12 +78,15 @@ const AdminServices = () => {
   // Delete service
   const deleteService = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/services/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        `http://localhost:5000/api/admin/services/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
       if (response.ok) {
         toast.success("Service deleted successfully!");
         getAllServices(); // Refresh services list
@@ -99,27 +112,35 @@ const AdminServices = () => {
           type="text"
           placeholder="Service Name"
           value={serviceData.service}
-          onChange={(e) => setServiceData({ ...serviceData, service: e.target.value })}
+          onChange={(e) =>
+            setServiceData({ ...serviceData, service: e.target.value })
+          }
         />
         <input
           className="admin-services-input"
           type="text"
           placeholder="Provider"
           value={serviceData.provider}
-          onChange={(e) => setServiceData({ ...serviceData, provider: e.target.value })}
+          onChange={(e) =>
+            setServiceData({ ...serviceData, provider: e.target.value })
+          }
         />
         <input
           className="admin-services-input"
           type="text"
           placeholder="Price"
           value={serviceData.price}
-          onChange={(e) => setServiceData({ ...serviceData, price: e.target.value })}
+          onChange={(e) =>
+            setServiceData({ ...serviceData, price: e.target.value })
+          }
         />
         <textarea
           className="admin-services-textarea"
           placeholder="Description"
           value={serviceData.description}
-          onChange={(e) => setServiceData({ ...serviceData, description: e.target.value })}
+          onChange={(e) =>
+            setServiceData({ ...serviceData, description: e.target.value })
+          }
         />
         <input
           className="admin-services-input"
@@ -127,26 +148,54 @@ const AdminServices = () => {
           accept="image/*"
           onChange={handleImageChange}
         />
-        <button className="admin-services-button" type="submit">Add Service</button>
+        <button className="admin-services-button" type="submit">
+          Add Service
+        </button>
       </form>
 
       <div>
-        <h2 className="admin-services-list-header">Manage Services</h2>
-        <ul className="admin-services-list">
-          {services.map((service) => (
-            <li className="admin-services-list-item" key={service._id}>
-              <p>{service.service}</p>
-              {service.image && <img src={`http://localhost:5000${service.image}`} alt={service.service} width="100" />}
-              <button
-                className="admin-services-delete-button"
-                onClick={() => deleteService(service._id)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+  <h2 className="admin-services-list-header">Manage Services</h2>
+  <div className="admin-services-grid">
+    {/* Grid Header */}
+    <div className="grid-header">Service</div>
+    <div className="grid-header">Provider</div>
+    <div className="grid-header">Price</div>
+    <div className="grid-header">Description</div>
+    <div className="grid-header">Image</div>
+    <div className="grid-header">Actions</div>
+
+    {/* Grid Rows */}
+    {services.map((service) => (
+      <>
+        <div className="grid-item">{service.service}</div>
+        <div className="grid-item">{service.provider}</div>
+        <div className="grid-item">${service.price}</div>
+        <div className="grid-item">{service.description}</div>
+        <div className="grid-item">
+          {service.image && (
+            <img
+              src={`http://localhost:5000${service.image}`}
+              alt={service.service}
+              style={{ width: "100px" }}
+            />
+          )}
+        </div>
+        <div className="grid-item">
+          <Link to={`/admin/services/edit/${service._id}`}>
+            <button className="admin-services-edit-button">Edit</button>
+          </Link>
+          <button
+            className="admin-services-delete-button"
+            onClick={() => deleteService(service._id)}
+          >
+            Delete
+          </button>
+        </div>
+      </>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 };

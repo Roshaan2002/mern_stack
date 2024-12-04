@@ -20,9 +20,13 @@ router.get("/services", servicesController.getAllServices);
 router.post("/services/add", upload.single("image"), servicesController.addService);
 
 // Route to update an existing service
-router.patch("/services/update/:id", servicesController.updateService);
+router.patch("/services/update/:id", upload.single("image"), servicesController.updateService);
 
 // Route to delete a service
 router.delete("/services/delete/:id", servicesController.deleteService);
+
+// Route to get service by ID
+router.get("/services/:id", servicesController.getServiceById);
+
 
 module.exports = router;

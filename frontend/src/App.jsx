@@ -13,9 +13,11 @@ import Error from "./pages/Error";
 import Footer from "./components/Footer/Footer";
 import AdminLayout from "./components/layouts/Admin-Layout";
 import AdminUsers from "./pages/Admin-Users";
-import AdminUpdate from "./pages/admin-Update";
 import AdminContacts from "./pages/Admin-Contacts";
 import AdminServices from "./pages/Admin-Services";
+import EditService from "./pages/Edit-service";
+import AdminUpdate from "./pages/Admin-Update";
+
 
 const App = () => {
   return (
@@ -36,6 +38,7 @@ const App = () => {
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="users" element={<AdminUsers />} />
             <Route path="/admin/users/:id/edit" element={<AdminUpdate />} />
+            <Route path="/admin/services/edit/:id" element={<EditService />} />
             <Route path="contacts" element={<AdminContacts />} />
             <Route path="services" element={<AdminServices />} />
           </Route>
