@@ -15,7 +15,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 // handling cors policy
 const corsOptions = {
-  origin: "http://localhost:5174", // my frontend URL
+  origin: ['http://localhost:5174', 'http://localhost:5173'], // my frontend URL
   methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
   credentials: true,
 };
