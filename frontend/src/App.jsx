@@ -18,7 +18,6 @@ import AdminServices from "./pages/Admin-Services";
 import EditService from "./pages/Edit-service";
 import AdminUpdate from "./pages/Admin-Update";
 
-
 const App = () => {
   return (
     <>
@@ -30,7 +29,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
-          <Route path="/service/:id" element={<ServiceDetail />} />
+          <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />

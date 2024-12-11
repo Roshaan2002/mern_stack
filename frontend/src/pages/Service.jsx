@@ -12,20 +12,19 @@ const Service = () => {
         {services && services.length > 0 ? (
           <div className="service-container grid grid-three-cols">
             {services.map((curService, index) => {
-              const { id, price, provider, service, description, image } = curService;
+              const { id, price, provider, service, description, image } =
+                curService;
+
               // Dynamically construct the image URL or use the fallback
-              const imageUrl = image && image.startsWith('/uploads')
-                ? `http://localhost:5000${image}`
-                : "/images/service-admin.png";
+              const imageUrl =
+                image && image.startsWith("/uploads")
+                  ? `http://localhost:5000${image}`
+                  : "/images/service-admin.png";
 
               return (
                 <div className="card" key={index}>
                   <div className="card-image">
-                    <img
-                      src={imageUrl}
-                      alt={service}
-                      width="400"
-                    />
+                    <img src={imageUrl} alt={service} width="400" />
                   </div>
                   <div className="card-details">
                     <div className="grid grid-two-cols">

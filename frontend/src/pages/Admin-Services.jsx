@@ -43,6 +43,7 @@ const AdminServices = () => {
     formData.append("provider", serviceData.provider);
     formData.append("price", serviceData.price);
     formData.append("description", serviceData.description);
+    formData.append("videoUrl", serviceData.videoUrl);
     if (serviceData.image) formData.append("image", serviceData.image);
 
     try {
@@ -58,13 +59,14 @@ const AdminServices = () => {
       );
       if (response.ok) {
         toast.success("Service added successfully!");
-        getAllServices(); // Refresh services list
+        getAllServices();
         setServiceData({
           service: "",
           provider: "",
           price: "",
           description: "",
           image: null,
+          videoUrl: "",
         });
       } else {
         toast.error("Failed to add service");
@@ -144,58 +146,67 @@ const AdminServices = () => {
         />
         <input
           className="admin-services-input"
+          type="text"
+          placeholder="Video URL"
+          value={serviceData.videoUrl}
+          onChange={(e) =>
+            setServiceData({ ...serviceData, videoUrl: e.target.value })
+          }
+        />
+        <input
+          className="admin-services-input"
           type="file"
           accept="image/*"
           onChange={handleImageChange}
         />
+
         <button className="admin-services-button" type="submit">
           Add Service
         </button>
       </form>
 
       <div>
-  <h2 className="admin-services-list-header">Manage Services</h2>
-  <div className="admin-services-grid">
-    {/* Grid Header */}
-    <div className="grid-header">Service</div>
-    <div className="grid-header">Provider</div>
-    <div className="grid-header">Price</div>
-    <div className="grid-header">Description</div>
-    <div className="grid-header">Image</div>
-    <div className="grid-header">Actions</div>
+        <h2 className="admin-services-list-header">Manage Services</h2>
+        <div className="admin-services-grid">
+          {/* Grid Header */}
+          <div className="grid-header">Service</div>
+          <div className="grid-header">Provider</div>
+          <div className="grid-header">Price</div>
+          <div className="grid-header">Description</div>
+          <div className="grid-header">Image</div>
+          <div className="grid-header">Actions</div>
 
-    {/* Grid Rows */}
-    {services.map((service) => (
-      <>
-        <div className="grid-item">{service.service}</div>
-        <div className="grid-item">{service.provider}</div>
-        <div className="grid-item">${service.price}</div>
-        <div className="grid-item">{service.description}</div>
-        <div className="grid-item">
-          {service.image && (
-            <img
-              src={`http://localhost:5000${service.image}`}
-              alt={service.service}
-              style={{ width: "100px" }}
-            />
-          )}
+          {/* Grid Rows */}
+          {services.map((service) => (
+            <>
+              <div className="grid-item">{service.service}</div>
+              <div className="grid-item">{service.provider}</div>
+              <div className="grid-item">${service.price}</div>
+              <div className="grid-item">{service.description}</div>
+              <div className="grid-item">
+                {service.image && (
+                  <img
+                    src={`http://localhost:5000${service.image}`}
+                    alt={service.service}
+                    style={{ width: "100px" }}
+                  />
+                )}
+              </div>
+              <div className="grid-item">
+                <Link to={`/admin/services/edit/${service._id}`}>
+                  <button className="admin-services-edit-button">Edit</button>
+                </Link>
+                <button
+                  className="admin-services-delete-button"
+                  onClick={() => deleteService(service._id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </>
+          ))}
         </div>
-        <div className="grid-item">
-          <Link to={`/admin/services/edit/${service._id}`}>
-            <button className="admin-services-edit-button">Edit</button>
-          </Link>
-          <button
-            className="admin-services-delete-button"
-            onClick={() => deleteService(service._id)}
-          >
-            Delete
-          </button>
-        </div>
-      </>
-    ))}
-  </div>
-</div>
-
+      </div>
     </div>
   );
 };

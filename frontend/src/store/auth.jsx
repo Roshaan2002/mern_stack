@@ -57,18 +57,17 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         const data = await response.json();
         setServices(Array.isArray(data) ? data : []);
-        console.log("Services set in context:", data); // Check if services are set
       }
     } catch (error) {
       console.error("Error fetching services:", error);
     }
   };
-  
+
   useEffect(() => {
     getServices();
     userAuthentication();
   }, [token]);
-  
+
   return (
     <AuthContext.Provider
       value={{

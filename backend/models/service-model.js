@@ -8,7 +8,7 @@ const serviceSchema = new Schema({
   description: {
     type: String,
     required: true,
-  },  
+  },
   price: {
     type: String,
     required: true,
@@ -20,9 +20,13 @@ const serviceSchema = new Schema({
   image: {
     type: String,
     required: false,
-  }
+  },
+  videoUrl: {
+    type: String,
+    required: false,
+  },
 });
 
-const Service = model('Services', serviceSchema);
+const Service = model("Services", serviceSchema);
 
 module.exports = Service;

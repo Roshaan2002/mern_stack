@@ -12,12 +12,15 @@ const EditService = () => {
     price: "",
     description: "",
     image: null,
+    videoLink: "",
   });
 
   // Fetch service details by ID
   const getServiceDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/services/${id}`);
+      const response = await fetch(
+        `http://localhost:5000/api/admin/services/${id}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch service details");
       }
@@ -28,7 +31,8 @@ const EditService = () => {
         provider: data.provider,
         price: data.price,
         description: data.description,
-        image: null, // Simplifying for now
+        image: null, // Reset image to null, as it will be uploaded fresh
+        videoLink: data.videoLink || "", // Populate video link if it exists
       });
     } catch (error) {
       console.error("Error fetching service details:", error);
@@ -44,6 +48,7 @@ const EditService = () => {
     formData.append("provider", service.provider);
     formData.append("price", service.price);
     formData.append("description", service.description);
+    formData.append("videoLink", service.videoLink); // Add video link to form data
     if (service.image) {
       formData.append("image", service.image);
     }
@@ -116,6 +121,18 @@ const EditService = () => {
               setService({ ...service, description: e.target.value })
             }
           ></textarea>
+        </div>
+        <div className="form-group">
+          <label>Video Link</label>
+          <input
+            className="admin-services-input"
+            type="url"
+            placeholder="Enter YouTube video link"
+            value={service.videoLink}
+            onChange={(e) =>
+              setService({ ...service, videoLink: e.target.value })
+            }
+          />
         </div>
         <div className="form-group">
           <label>Image</label>

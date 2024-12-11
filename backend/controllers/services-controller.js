@@ -1,5 +1,5 @@
-const { default: mongoose } = require('mongoose');
-const Service = require('../models/service-model'); // Assuming you have a Service model
+const mongoose = require("mongoose");
+const Service = require("../models/service-model");
 
 // Get all services
 exports.getAllServices = async (req, res) => {
@@ -7,15 +7,26 @@ exports.getAllServices = async (req, res) => {
     const services = await Service.find();
     res.status(200).json(services);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching services", error });
+    console.error("Error fetching services:", error);
+    res
+      .status(500)
+      .json({ message: "Error fetching services", error: error.message });
   }
 };
 
-// Controller to add a new service
+// Add a new service
 exports.addService = async (req, res) => {
   try {
-    const { service, provider, price, description } = req.body;
-    const image = req.file ? `/uploads/${req.file.filename}` : null; // Store image path
+    const { service, provider, price, description, videoUrl } = req.body;
+
+    // Validation
+    if (!service || !provider || !price) {
+      return res
+        .status(400)
+        .json({ message: "Service, provider, and price are required." });
+    }
+
+    const image = req.file ? `/uploads/${req.file.filename}` : null;
 
     const newService = new Service({
       service,
@@ -23,32 +34,44 @@ exports.addService = async (req, res) => {
       price,
       description,
       image,
+      videoUrl,
     });
-    await newService.save();
 
-    res.status(200).json(newService); // Send the newly added service
+    const savedService = await newService.save();
+    res.status(201).json(savedService);
   } catch (error) {
-    res.status(500).json({ message: "Error adding service" });
+    console.error("Error adding service:", error);
+    res
+      .status(500)
+      .json({ message: "Error adding service", error: error.message });
   }
 };
-// Update service by ID
+
+// Update a service by ID
 exports.updateService = async (req, res) => {
   const { id } = req.params;
-  const { service, provider, price, description } = req.body;
+
+  // Check if ID is valid
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: "Invalid service ID" });
+  }
+
+  const { service, provider, price, description, videoUrl } = req.body;
   const image = req.file ? `/uploads/${req.file.filename}` : undefined;
 
   try {
-    const updatedService = await Service.findByIdAndUpdate(
-      id,
-      {
-        service,
-        provider,
-        price,
-        description,
-        ...(image && { image }), // Update the image if provided
-      },
-      { new: true }
-    );
+    const updatedData = {
+      service,
+      provider,
+      price,
+      description,
+      videoUrl,
+      ...(image !== undefined && { image }), // Only include image if it is defined
+    };
+
+    const updatedService = await Service.findByIdAndUpdate(id, updatedData, {
+      new: true,
+    });
 
     if (!updatedService) {
       return res.status(404).json({ message: "Service not found" });
@@ -56,14 +79,21 @@ exports.updateService = async (req, res) => {
 
     res.status(200).json(updatedService);
   } catch (error) {
-    console.error("Error updating service:", error); // Log for debugging
-    res.status(500).json({ message: "Error updating service", error });
+    console.error("Error updating service:", error);
+    res
+      .status(500)
+      .json({ message: "Error updating service", error: error.message });
   }
 };
 
-// Delete service by ID
+// Delete a service by ID
 exports.deleteService = async (req, res) => {
   const { id } = req.params;
+
+  // Check if ID is valid
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: "Invalid service ID" });
+  }
 
   try {
     const deletedService = await Service.findByIdAndDelete(id);
@@ -74,14 +104,16 @@ exports.deleteService = async (req, res) => {
 
     res.status(200).json({ message: "Service deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting service", error });
+    console.error("Error deleting service:", error);
+    res
+      .status(500)
+      .json({ message: "Error deleting service", error: error.message });
   }
 };
 
 // Get service by ID
-
 exports.getServiceById = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params; // The ID comes from the URL parameter
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid service ID" });
   }
@@ -93,10 +125,9 @@ exports.getServiceById = async (req, res) => {
     }
     res.status(200).json(service);
   } catch (error) {
-    console.error("Error fetching service:", error); // Log for debugging
-    res.status(500).json({ message: "Error fetching service", error });
+    console.error("Error fetching service:", error);
+    res
+      .status(500)
+      .json({ message: "Error fetching service", error: error.message });
   }
 };
-
-
-
