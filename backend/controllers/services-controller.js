@@ -17,7 +17,7 @@ exports.getAllServices = async (req, res) => {
 // Add a new service
 exports.addService = async (req, res) => {
   try {
-    const { service, provider, price, description, videoUrl } = req.body;
+    const { service, provider, price, description, videoLink } = req.body;
 
     // Validation
     if (!service || !provider || !price) {
@@ -34,7 +34,7 @@ exports.addService = async (req, res) => {
       price,
       description,
       image,
-      videoUrl,
+      videoLink,
     });
 
     const savedService = await newService.save();
@@ -56,19 +56,22 @@ exports.updateService = async (req, res) => {
     return res.status(400).json({ message: "Invalid service ID" });
   }
 
-  const { service, provider, price, description, videoUrl } = req.body;
+  // Extract fields from the request body
+  const { service, provider, price, description, videoLink } = req.body;
   const image = req.file ? `/uploads/${req.file.filename}` : undefined;
 
   try {
-    const updatedData = {
-      service,
-      provider,
-      price,
-      description,
-      videoUrl,
-      ...(image !== undefined && { image }), // Only include image if it is defined
-    };
+    // Create an object with only the fields that have values
+    const updatedData = {};
 
+    if (service) updatedData.service = service;
+    if (provider) updatedData.provider = provider;
+    if (price) updatedData.price = price;
+    if (description) updatedData.description = description;
+    if (videoLink) updatedData.videoLink = videoLink;
+    if (image !== undefined) updatedData.image = image;
+
+    // Update service in the database
     const updatedService = await Service.findByIdAndUpdate(id, updatedData, {
       new: true,
     });

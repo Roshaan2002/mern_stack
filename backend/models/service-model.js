@@ -21,7 +21,7 @@ const serviceSchema = new Schema({
     type: String,
     required: false,
   },
-  videoUrl: {
+  videoLink: {
     type: String,
     required: false,
   },

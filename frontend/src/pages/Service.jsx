@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuth } from "../store/auth";
-import { Link } from "react-router-dom"; // Import Link for navigation
 
 const Service = () => {
   const { services } = useAuth();
@@ -12,8 +11,15 @@ const Service = () => {
         {services && services.length > 0 ? (
           <div className="service-container grid grid-three-cols">
             {services.map((curService, index) => {
-              const { id, price, provider, service, description, image } =
-                curService;
+              const {
+                id,
+                price,
+                provider,
+                service,
+                description,
+                image,
+                videoLink,
+              } = curService;
 
               // Dynamically construct the image URL or use the fallback
               const imageUrl =
@@ -33,9 +39,19 @@ const Service = () => {
                     </div>
                     <h2>{service}</h2>
                     <p className="service-description">{description}</p>
-                    <Link to={`/services/${id}`} className="read-more-button">
-                      Read More
-                    </Link>
+
+                    {videoLink ? (
+                      <a
+                        href={videoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="read-more-button"
+                      >
+                        Watch Video
+                      </a>
+                    ) : (
+                      <p className="no-video-message">Video not available</p>
+                    )}
                   </div>
                 </div>
               );

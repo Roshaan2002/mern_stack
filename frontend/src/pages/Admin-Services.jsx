@@ -43,7 +43,7 @@ const AdminServices = () => {
     formData.append("provider", serviceData.provider);
     formData.append("price", serviceData.price);
     formData.append("description", serviceData.description);
-    formData.append("videoUrl", serviceData.videoUrl);
+    formData.append("videoLink", serviceData.videoLink);
     if (serviceData.image) formData.append("image", serviceData.image);
 
     try {
@@ -66,7 +66,7 @@ const AdminServices = () => {
           price: "",
           description: "",
           image: null,
-          videoUrl: "",
+          videoLink: "",
         });
       } else {
         toast.error("Failed to add service");
@@ -148,9 +148,9 @@ const AdminServices = () => {
           className="admin-services-input"
           type="text"
           placeholder="Video URL"
-          value={serviceData.videoUrl}
+          value={serviceData.videoLink}
           onChange={(e) =>
-            setServiceData({ ...serviceData, videoUrl: e.target.value })
+            setServiceData({ ...serviceData, videoLink: e.target.value })
           }
         />
         <input

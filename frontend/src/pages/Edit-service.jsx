@@ -48,7 +48,7 @@ const EditService = () => {
     formData.append("provider", service.provider);
     formData.append("price", service.price);
     formData.append("description", service.description);
-    formData.append("videoLink", service.videoLink); // Add video link to form data
+    formData.append("videoLink", service.videoLink);
     if (service.image) {
       formData.append("image", service.image);
     }

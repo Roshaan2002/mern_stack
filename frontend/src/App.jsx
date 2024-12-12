@@ -8,7 +8,6 @@ import Register from "./pages/Register";
 import Logout from "./pages/Logout";
 import Navbar from "./components/Navbar";
 import Service from "./pages/Service";
-import ServiceDetail from "./pages/ServiceDetail";
 import Error from "./pages/Error";
 import Footer from "./components/Footer/Footer";
 import AdminLayout from "./components/layouts/Admin-Layout";
@@ -29,7 +28,6 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
-          <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
