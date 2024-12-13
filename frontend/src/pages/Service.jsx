@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
 
 const Service = () => {
   const { services } = useAuth();
@@ -12,7 +13,6 @@ const Service = () => {
           <div className="service-container grid grid-three-cols">
             {services.map((curService, index) => {
               const {
-                id,
                 price,
                 provider,
                 service,
@@ -41,16 +41,16 @@ const Service = () => {
                     <p className="service-description">{description}</p>
 
                     {videoLink ? (
-                      <a
-                        href={videoLink}
+                      <Link
+                        to={videoLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="read-more-button"
                       >
-                        Watch Video
-                      </a>
+                        Watch Related Video
+                      </Link>
                     ) : (
-                      <p className="no-video-message">Video not available</p>
+                      <h1 className="main-heading">Video not available</h1>
                     )}
                   </div>
                 </div>
@@ -58,7 +58,7 @@ const Service = () => {
             })}
           </div>
         ) : (
-          <h4>No services available.</h4>
+          <h4 className="main-heading">No services available.</h4>
         )}
       </div>
     </section>
