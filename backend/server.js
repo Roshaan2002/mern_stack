@@ -1,9 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const path = require('path');
-const bodyParser = require('body-parser');
+const path = require("path");
+const bodyParser = require("body-parser");
 const cors = require("cors");
+
+// Routes
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router");
@@ -15,7 +17,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 // handling cors policy
 const corsOptions = {
-  origin: ['http://localhost:5174', 'http://localhost:5173'], // my frontend URL
+  origin: ["http://localhost:5174", "http://localhost:5173"], // my frontend URL
   methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
   credentials: true,
 };

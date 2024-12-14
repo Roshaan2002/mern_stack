@@ -15,7 +15,6 @@ const AdminContacts = () => {
         },
       });
       const data = await response.json();
-      console.log("contact data", data);
       if (response.ok) {
         setContactData(data);
       }
@@ -27,15 +26,20 @@ const AdminContacts = () => {
   // Move deleteContactById to the component level
   const deleteContactById = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/contacts/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        `http://localhost:5000/api/admin/contacts/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
       if (response.ok) {
         // Remove the deleted contact from the contactData state
-        setContactData((prevData) => prevData.filter((contact) => contact._id !== id));
+        setContactData((prevData) =>
+          prevData.filter((contact) => contact._id !== id)
+        );
         toast.success("Message Deleted");
       } else {
         toast.error("Not Deleted");

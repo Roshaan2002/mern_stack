@@ -44,10 +44,12 @@ const Login = () => {
       if (response.ok) {
         storeTokenInLS(res_data.token);
         setUser({ email: "", password: "" });
-        toast.success("Login Successful")
+        toast.success("Login Successful");
         navigate("/");
       } else {
-        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message)
+        toast.error(
+          res_data.extraDetails ? res_data.extraDetails : res_data.message
+        );
         console.log("invalid credentials");
       }
       console.log(response);
