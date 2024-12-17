@@ -21,7 +21,6 @@ const Service = () => {
                 videoLink,
               } = curService;
 
-              // Dynamically construct the image URL or use the fallback
               const imageUrl =
                 image && image.startsWith("/uploads")
                   ? `http://localhost:5000${image}`

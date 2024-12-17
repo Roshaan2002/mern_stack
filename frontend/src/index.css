@@ -282,6 +282,7 @@ li {
   font-size: 1.3rem;
   letter-spacing: normal;
 }
+
 /* read more button in service styling */
 .read-more-button {
   display: inline-block;
@@ -319,7 +320,8 @@ li {
   color: white;
   width: 250px;
   padding-top: 1rem;
-  transition: transform 0.3s ease; /* Smooth transition for toggle */
+  transition: transform 0.3s ease;
+  margin: -9px;
 }
 
 .admin-nav ul {
@@ -346,7 +348,8 @@ li {
 }
 
 .admin-nav ul li a:hover {
-  background-color: #0056b3; /* Slightly darker shade */
+  background-color: #0056b3;
+  /* Slightly darker shade */
 }
 
 .admin-content {
@@ -619,7 +622,8 @@ td:last-child .delete {
 
 .admin-services-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 columns for the grid */
+  grid-template-columns: repeat(6, 1fr);
+  /* 6 columns for the grid */
   gap: 10px;
   padding: 20px;
 }
@@ -656,6 +660,7 @@ td:last-child .delete {
 
 /* Responsive */
 @media (max-width: 768px) {
+
   th,
   td {
     font-size: 0.9rem;
@@ -664,16 +669,19 @@ td:last-child .delete {
   h1 {
     font-size: 1.8rem;
   }
+
   .admin-nav {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    transform: translateX(-100%); /* Hide sidebar by default on small screens */
+    transform: translateX(-100%);
+    /* Hide sidebar by default on small screens */
   }
 
   .admin-nav.open {
-    transform: translateX(0); /* Show sidebar when open */
+    transform: translateX(0);
+    /* Show sidebar when open */
   }
 
   /* Add padding to the content when the menu is open */
@@ -714,10 +722,12 @@ td:last-child .delete {
   td {
     padding: 0.8rem;
   }
+
   .grid-two-cols,
   .grid-four-cols {
     grid-template-columns: 1fr;
   }
+
   .grid-three-cols {
     grid-template-columns: 1fr;
   }
@@ -725,6 +735,7 @@ td:last-child .delete {
   .section-analytics .grid-four-cols {
     gap: 1.5rem;
   }
+
   .hero-content h1 {
     font-size: 2rem;
   }
@@ -732,6 +743,7 @@ td:last-child .delete {
   .hero-image img {
     margin: 0 auto;
   }
+
   .user-update {
     width: 90%;
     padding: 1.5rem;
