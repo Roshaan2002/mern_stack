@@ -1,12 +1,15 @@
 require("dotenv").config();
 const express = require("express");
+const session = require("express-session");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 // Routes
 const authRoute = require("./router/auth-router");
+const messageRoute = require("./router/message-router");
 const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router");
 const adminRoute = require("./router/admin-router");
@@ -23,12 +26,24 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(cookieParser());
 
 app.use(express.json());
 app.use(bodyParser.json());
 
+//express-session
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
+
 // Mount the router
 app.use("/api/auth", authRoute);
+app.use("/api/messages", messageRoute);
 app.use("/api/form", contactRoute);
 app.use("/api/data", serviceRoute);
 

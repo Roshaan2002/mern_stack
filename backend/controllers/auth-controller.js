@@ -40,7 +40,7 @@ const register = async (req, res) => {
 };
 
 // User login logic
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -71,6 +71,33 @@ const login = async (req, res) => {
   }
 };
 
+//logout User logic
+const logoutUser = async (req, res) => {
+  try {
+    if (!req.session) {
+      return res.status(400).json({ msg: "No active session to destroy" });
+    }
+
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Error destroying session:", err);
+        return res
+          .status(500)
+          .json({ msg: "Logout failed", error: err.message });
+      }
+
+      res.clearCookie("connect.sid"); // Match this with your session configuration
+      console.log("Session destroyed and cookie cleared");
+      res.status(200).json({ msg: "Logged out successfully" });
+    });
+  } catch (error) {
+    console.error("Unexpected error during logout:", error);
+    res
+      .status(500)
+      .json({ msg: "Internal server error", error: error.message });
+  }
+};
+
 //to send user data - user logic
 const user = async (req, res) => {
   try {
@@ -81,4 +108,4 @@ const user = async (req, res) => {
     console.log(`error from the route ${error}`);
   }
 };
-module.exports = { home, register, login, user };
+module.exports = { home, register, login, user, logoutUser };

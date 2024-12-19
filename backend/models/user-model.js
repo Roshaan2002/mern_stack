@@ -2,28 +2,31 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
+const userSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
-  email: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  isAdmin: {
-    type: Boolean,
-    default: false,
-  },
-});
+  { timestamps: true }
+);
 
 // Secure the password with bcrypt
 userSchema.pre("save", async function (next) {
@@ -42,9 +45,9 @@ userSchema.pre("save", async function (next) {
 });
 
 // compare the password
-userSchema.methods.comparePassword = async function(password) {
-  return bcrypt.compare(password, this.password)
-}
+userSchema.methods.comparePassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 // JSON Web Token method
 userSchema.methods.generateToken = async function () {
