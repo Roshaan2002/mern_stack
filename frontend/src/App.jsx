@@ -23,7 +23,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route />
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -32,10 +32,11 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Error />} />
+          {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="users" element={<AdminUsers />} />
-            <Route path="/admin/users/:id/edit" element={<AdminUpdate />} />
-            <Route path="/admin/services/edit/:id" element={<EditService />} />
+            <Route path="users/:id/edit" element={<AdminUpdate />} />
+            <Route path="services/edit/:id" element={<EditService />} />
             <Route path="contacts" element={<AdminContacts />} />
             <Route path="services" element={<AdminServices />} />
           </Route>
