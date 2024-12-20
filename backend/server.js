@@ -10,13 +10,15 @@ const cors = require("cors");
 // Routes
 const authRoute = require("./router/auth-router");
 const messageRoute = require("./router/message-router");
+const userRoute = require("./router/user-router");
 const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router");
 const adminRoute = require("./router/admin-router");
 const adminContactRoute = require("./router/admin-router");
 const servicesRouter = require("./router/service-router");
-const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
+
+const connectDB = require("./utils/db");
 
 // handling cors policy
 const corsOptions = {
@@ -44,6 +46,7 @@ app.use(
 // Mount the router
 app.use("/api/auth", authRoute);
 app.use("/api/messages", messageRoute);
+app.use("/api/users", userRoute);
 app.use("/api/form", contactRoute);
 app.use("/api/data", serviceRoute);
 
