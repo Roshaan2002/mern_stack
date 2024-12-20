@@ -16,6 +16,7 @@ import AdminContacts from "./pages/Admin-Contacts";
 import AdminServices from "./pages/Admin-Services";
 import EditService from "./pages/Edit-service";
 import AdminUpdate from "./pages/Admin-Update";
+import Chat from "./pages/Chat";
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About />} />\
+          <Route path="/chat" element={<Chat />} />\
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
           <Route path="/login" element={<Login />} />

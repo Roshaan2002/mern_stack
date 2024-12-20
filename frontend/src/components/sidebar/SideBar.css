@@ -1,0 +1,30 @@
+/* Message Styling css */
+
+.sidebar-continer {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-data {
+    flex-direction: column;
+    flex: 1;
+}
+
+.sidebar-names {
+    display: flex;
+    justify-content: space-between;
+    gap: 3;
+}
+
+.conversation-username {
+    font-weight: bold;
+    color: #0073e6;
+}
+
+.conversation-emoji {
+    font-size: x-large;
+    color: #0073e6;
+}

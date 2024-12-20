@@ -44,6 +44,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/chat" onClick={toggleMenu}>
+                  Chat
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/service" onClick={toggleMenu}>
                   Service
                 </NavLink>
