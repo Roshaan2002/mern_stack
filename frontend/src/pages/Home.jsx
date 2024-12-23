@@ -1,7 +1,6 @@
 import React from "react";
 import Analytics from "../components/Analytics";
 import { Link } from "react-router-dom";
-import "../main.css";
 
 const Home = () => {
   return (

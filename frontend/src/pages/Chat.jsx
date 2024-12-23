@@ -4,7 +4,7 @@ import MessageContainer from "../components/messages/MessageContainer";
 
 const Chat = () => {
   return (
-    <div>
+    <div className="app-container">
       <SideBar />
       <MessageContainer />
     </div>

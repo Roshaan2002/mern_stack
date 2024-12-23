@@ -505,6 +505,27 @@ td:last-child .delete {
   background-color: #357ab8;
 }
 
+/* chat css styling */
+.app-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 100vh;
+  gap: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.message-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+
 /* admin-service styleing css  */
 .admin-services-container {
   width: 90%;
