@@ -9,7 +9,7 @@ const useGetConversation = () => {
     const getConversation = async () => {
       setLoading(true);
       try {
-        const token = localStorage.getItem("token"); // Get the token from storage
+        const token = localStorage.getItem("token");
         if (!token) {
           throw new Error("Unauthorized - Token not provided");
         }
@@ -18,7 +18,7 @@ const useGetConversation = () => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include the token
+            Authorization: `Bearer ${token}`,
           },
         });
 

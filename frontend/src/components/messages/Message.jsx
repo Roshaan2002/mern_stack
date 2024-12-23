@@ -1,6 +1,11 @@
 import React from "react";
+import { useAuth } from "../../store/auth";
+import useConversation from "../../zustand/useConversation";
 
-const Message = () => {
+const Message = ({ message }) => {
+  const { authUser } = useAuth();
+  const { selectedConversation } = useConversation();
+  const fromMe = message.senderId === authUser._id;
   return (
     <div className="message">
       <div className="message-avatar"></div>
