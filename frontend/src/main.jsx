@@ -5,11 +5,11 @@ import App from "./App.jsx";
 import { AuthProvider } from "./store/auth.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthChatContextProvider } from "./context/authChatContext.jsx";
+import { AuthChatProvider } from "./context/authChatContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <AuthChatContextProvider>
+    <AuthChatProvider>
       <StrictMode>
         <App />
         <ToastContainer
@@ -27,6 +27,6 @@ createRoot(document.getElementById("root")).render(
         />
       </StrictMode>
       ,
-    </AuthChatContextProvider>
+    </AuthChatProvider>
   </AuthProvider>
 );

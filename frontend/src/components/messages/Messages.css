@@ -48,15 +48,17 @@
 
 .message {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
+    justify-content: flex-end;
     margin-bottom: 16px;
 }
 
 .message>div:nth-child(2) {
-    background-color: #e9ecef;
+    background-color: #007bff;
     padding: 8px 12px;
     border-radius: 4px;
     max-width: 70%;
+    color: #fff;
 }
 
 .message>div:last-child {
@@ -83,6 +85,7 @@
     border-radius: 4px;
     margin-right: 8px;
     width: 100%;
+    color: white;
 }
 
 .message-input-button {
