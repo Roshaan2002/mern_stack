@@ -47,14 +47,10 @@
 }
 
 .message {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
     margin-bottom: 16px;
 }
 
 .message>div:nth-child(2) {
-    background-color: #007bff;
     padding: 8px 12px;
     border-radius: 4px;
     max-width: 70%;
@@ -109,6 +105,28 @@
     text-align: center;
     color: #666;
     font-size: 18px;
+}
+
+.message-avatar img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.chat-start {
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chat-end {
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 @media (max-width: 768px) {

@@ -8,9 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthChatProvider } from "./context/authChatContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <AuthChatProvider>
-      <StrictMode>
+  <StrictMode>
+    <AuthProvider>
+      <AuthChatProvider>
         <App />
         <ToastContainer
           position="top-right"
@@ -25,8 +25,7 @@ createRoot(document.getElementById("root")).render(
           theme="dark"
           toastClassName="toastBody"
         />
-      </StrictMode>
-      ,
-    </AuthChatProvider>
-  </AuthProvider>
+      </AuthChatProvider>
+    </AuthProvider>
+  </StrictMode>
 );
