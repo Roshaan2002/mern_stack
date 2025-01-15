@@ -13,7 +13,7 @@ const Message = ({ message }) => {
     : selectedConversation?.profilePic;
   const bubbleStyle = fromMe
     ? { backgroundColor: "#0073ed", color: "#fff" }
-    : { backgroundColor: "#000", color: "#fff" };
+    : { backgroundColor: "#222", color: "#fff" };
 
   return (
     <div className={`message ${chatClassName}`}>
@@ -23,9 +23,9 @@ const Message = ({ message }) => {
           alt="Profile Image"
         />
       </div>
-
-      <div className={`message-content ${bubbleStyle}`}>{message.message}</div>
-
+      <div className="message-content" style={bubbleStyle}>
+        {message.message}
+      </div>
       <div className="message-time">{formattedTime}</div>
     </div>
   );

@@ -43,7 +43,7 @@ const App = () => {
             <Route path="services" element={<AdminServices />} />
           </Route>
         </Routes>
-        <div id="root">
+        <div id="root" style={{ height: "50vh" }}>
           <div className="main-content"></div>
           <Footer />
         </div>
